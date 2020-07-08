@@ -1,0 +1,40 @@
+{% extends 'index.html.twig' %}
+ {% block LE %}active{% endblock %}
+{%  block title %}Liste Etudiant{% endblock %}
+
+ {% block includePage %}
+     <div class="container">
+         <div class="header row pt-2">
+             <div class="col-8 text-center">
+                 <h3>Liste des Etudiants</h3>
+             </div>
+             <div class="col-4 d-flex">
+                 <input id="req" type="text" placeholder="chercher etudiant" class="mx-2">
+                <img id="search"  src="{{ asset('/img/search.png') }}" alt="search" class="search" >
+             </div>
+
+         </div>
+         <div class="midEtud mt-4" id="Zone">
+
+             <table class="table" >
+                 <thead>
+                 <tr>
+                     <th scope="col">Matricule</th>
+                     <th scope="col">Prénom</th>
+                     <th scope="col">Nom</th>
+                     <th scope="col">Téléphone</th>
+                     <th scope="col">Email</th>
+                     <th scope="col">Bourse</th>
+                     <th scope="col">Room/addr</th>
+                     <th scope="col">Action</th>
+                 </tr>
+                 </thead>
+                 <tbody id="ScrollZone">
+                 </tbody>
+             </table>
+         </div>
+     </div>
+ {% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('/js/listEtudiant.js') }}"></script>
+    {% endblock %}

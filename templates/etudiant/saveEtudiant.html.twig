@@ -1,0 +1,67 @@
+{% extends 'index.html.twig' %}
+ {% block EE %}active{% endblock %}
+{% block includePage %}
+    <div class="container">
+        <h3 class="titre_page">Enregistrer un Etudiant</h3>
+        <h6 class="titre_page">**Tous les champs sont obligatoires**</h6>
+        <div class="midEtud px-4 mt-4 mx-4">
+            <form id="formEnrEtudiant" action="/" method="post">
+                <div class="form-group">
+                    <label for="prenom">Prenom</label>
+                    <input type="text" class="form-control" id="prenom" name="prenom">
+                </div>
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" id="nom" name="nom">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                    <label for="Telephone">Telephone</label>
+                    <input type="text" class="form-control" id="telephone" name="telephone">
+                </div>
+                <div class="form-group">
+                    <label for="dateDeNaissanc">Date de Naissance</label>
+                    <input type="date" class="form-control" id="dateDeNaissanc" name="dateDeNaissanc">
+                </div>
+                <div class="form-group">
+                    <label for="bourse">Bourse</label>
+                    <select name="bourse" id="bourse" class="form-control" onChange="choixBourse(this)">
+                        <option selected="selected" value="Non">Non</option>
+                        <option value="Demie">Demie</option>
+                        <option value="Entiere">Entiere</option>
+                    </select>
+                </div>
+                <div class="form-group" id="generation1">
+                    <label for="loge">Logement</label>
+                    <select name="logement" id="logement" class="form-control" onChange="choixLogement(this)">
+                        <option selected="selected" value="Non">Non</option>
+                        <option value="Oui">Oui</option>
+                    </select>
+                </div>
+                <div class="form-group" id="generation2">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" class="form-control" id="adresse" name="adresse">
+                </div>
+                <div class="form-group" id="generation3">
+                    <label for="loge">Chambre</label>
+                    <select name="chambre" id="chambre" class="form-control" onChange="choixLogement(this)">
+                        {% for chambre in chambres %}
+                        <option value="{{ chambre.id }}">{{ chambre.id }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div  class="form-group p-4 text-center">
+                    <input type="submit" name="enregistrer" value="Enregistrer" class=' -auto p-2 px-4 w-25 rounded bg-primary text-white '>
+                </div>
+            </form>
+            {% block javascripts %}
+                <script src="{{ asset('/js/enrEtudiant.js') }}"></script>
+            {% endblock %}
+
+        </div>
+    </div>
+
+{% endblock %}

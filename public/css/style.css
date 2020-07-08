@@ -1,0 +1,178 @@
+body{
+    font-family: 'Josefin Sans';
+}
+.menu{
+    width: 20%;
+    height: 65%;
+}
+.menu ul a:hover{text-decoration: none;}
+.mid{
+    height: 40vw;
+    width: 100%;
+    background-image: url("../img/midBG.jpg");
+}
+.include{
+    width: 82%;
+    height: 96%;
+    margin-left: 1%;
+}
+.midEtud{
+    border: 3px solid black;
+    border-radius: 20px;
+    max-height: 30vw;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.search,.modsup{
+    cursor: pointer;
+}
+
+/*page connexion PISD*/
+.formulaire_connexion {
+    position: relative;
+    width: 40%;
+    height: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-left: 33%;
+    background-color: #E5E5E5;
+    margin-top: 50px;
+    border-radius: 30px;
+}
+.formulaire_connexion form{
+    width: 100%;
+}
+#entete_login{
+    text-align: center;
+    width: auto;
+    height: 130px;
+    background-color: #44C7FF;
+    color: #FFFFFF;
+}
+#entete_login p{
+    display: inline-block;
+    font-size: 30px;
+    margin-top: 10px;
+}
+#entete_login img{
+    float: left;
+    margin-left: 30px;
+    height: 94%;
+    margin-top: 5px;
+}
+.plaisir{
+    color:#D96A52;
+}
+#de{
+    color:#F4D998;
+}
+#logo_login{
+    width:95px;
+    height:150px;
+    margin-left: 45%;
+}
+.seConnecter{
+    text-align: center;
+    color: #000000;
+    padding-top: 10px;
+}
+.inputLogin{
+    display: block;
+    width: 90%;
+    height: 55px;
+    border: none;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    margin-left: 5%;
+    text-indent: 10px;
+    margin-top: 10px;
+}
+#tooltipLogin{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 10px;
+    font-family: Impact;
+    border-radius: 4px;
+    font-size: 15px;
+    color: #D96A52;
+    text-align: center;
+    display: none;
+}
+.inputPassword{
+    width: 90%;
+    height: 55px;
+    border: none;
+    border-radius: 15px;
+    margin-left: 5%;
+    text-indent: 10px;
+    margin-top: 10px;
+}
+#tooltipPassword{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 10px;
+    font-family: Impact;
+    border-radius: 4px;
+    font-size: 15px;
+    color: #D96A52;
+    text-align: center;
+    display: none;
+}
+.label_connexion{
+    margin-left:6%;
+    margin-top: 10px;
+}
+#btnConnexion{
+    width: 35%;
+    height: 55px;
+    margin-top: 30px;
+    color: white;
+    background-color: #44C7FF;
+    font-size: 20px;
+    font-family: sans-serif;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    border: none;
+    margin-left: 33%;
+    margin-bottom: 5%;
+}
+
+@media (max-width: 800px) {
+    .formulaire_connexion {
+        position: relative;
+        width: 80%;
+        height: auto;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-left: 10%;
+        background-color: #E5E5E5;
+        margin-top: 50px;
+        border-radius: 30px;
+    }
+    #entete_login p{
+        display: inline-block;
+        font-size: 20px;
+        padding-top: 15px;
+    }
+}
+
+/*Page listChambre.php PISD*/
+.titre_page{
+    text-align: center;
+}
+.midChamb{
+    border: 3px solid black;
+    border-radius: 20px;
+    max-height: 32vw;
+}
+.pagination{
+    width: max-content;
+    margin: auto;
+}
+.pagination span{
+    border: 0.1rem solid #02a8de;
+    width: 1.5rem;
+    background-color: white;
+    text-align: center;
+}

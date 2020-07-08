@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste Etudiant{% endblock %}
+        {% block stylesheets %}<link rel="stylesheet" href="{{ asset('/css/style.css') }}">{% endblock %}
+{% block body %}
+
+    <div class="container-fluid d-flex bg-primary">
+        <nav class="navbar navbar-dark ">
+            <img class="navbar-brand rounded-circle ml-2"  src="{{ asset('/img/logo.png') }}" alt="logo">
+        </nav>
+        <h3 class="col-lg-8 col-sm-6 py-4 text-white text-center">Bienvenu sur la plateforme d’allocation de chambre<br>
+            Pour une meilleure experience universitaire!</h3>
+        <a href="" class="my-auto col-2"> <button type="button" class="btn btn-danger font-weight-bold d-none">Deconnexion</button></a>
+    </div>
+    <div class="container-fluid d-flex pt-2 mid align-items-center">
+        <div class="menu bg-light rounded ">
+            <h4 class="text-center mt-4 mb-4 text-black ">MENU</h4>
+
+            <div class="list-group my-5">
+                <ul class="font-weight-bold m-0 p-0">
+                    <a href="{{ path('saveEtudiant') }}"><li id="saveEtudiant" class="list-group-item list-group-item-action p-3  {% block EE %}{% endblock %}" >Enregistrer Etudiants</li></a>
+                    <a href="{{ path('listEtudiant') }}"><li id="listEtudiant" class="list-group-item list-group-item-action p-3 {% block LE %}{% endblock %} " >Liste Etudiant</li></a>
+                    <a href="{{ path('saveChambre') }}"><li id="saveChambre" class="list-group-item list-group-item-action p-3 {% block EC %}{% endblock %} " >Enregistrer Chambre</li></a>
+                    <a href="{{ path('listChambre') }}"><li id="listChambre" class="list-group-item list-group-item-action p-3 {% block LC %}{% endblock %} " >Liste Chambre</li></a>
+
+                </ul>
+            </div>
+        </div>
+        <div class="include bg-light rounded" id="include">
+            {% block includePage %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

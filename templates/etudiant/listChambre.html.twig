@@ -1,0 +1,34 @@
+{% extends 'index.html.twig' %}
+ {% block LC %}active{% endblock %}
+{%  block title %}Liste Chambre{% endblock %}
+{% block includePage %}
+<div class="container">
+    <h3 class="titre_page">Liste des Chambres</h3>
+    <div class="midChamb px-4 mt-4 mx-4">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">N° Chambre</th>
+                <th scope="col">N° Batiment</th>
+                <th scope="col">Type</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for chambre in chambres %}
+            <tr>
+                <td>{{ chambre.id }}</td>
+                <td>{{ chambre.batiment }}</td>
+                <td>{{ chambre.type }}</td>
+                <td><img src="{{ asset('/img/edit.png') }}" alt="edit" class='mr-4'><img src="{{ asset('/img/delete.png') }}" alt="delete"></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+    <div class="paginator mt-5">
+        {{ knp_pagination_render(chambres) }}
+    </div>
+</div>
+{%  endblock %}

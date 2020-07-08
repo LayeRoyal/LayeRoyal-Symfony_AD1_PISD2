@@ -1,0 +1,24 @@
+{% extends 'index.html.twig' %}
+ {% block EC %}active{% endblock %}
+{%  block title %}Enregistrer Chambre{% endblock %}
+{% block includePage %}
+    <form action="" method="post">
+      <div class="container">
+        <div class="container text-center pt-2 mt-2">
+            <h3>Enregistrer une chambre</h3>
+        </div>
+
+        <div class="px-4 mt-4 mx-2  p-2">
+            {{ form(form) }}
+            <div  class="form-group p-4 text-center">
+                <input type="submit" name="Enregistrer" value="Enregistrer" class=' -auto p-2 px-4 w-25 rounded bg-primary text-white '>
+            </div>
+            <div  class="form-group text-center text-success">
+                {% if message | default() %}
+                    {{ message | raw}}
+                {% endif %}
+            </div>
+        </div>
+      </div>
+    </form>
+{% endblock %}
