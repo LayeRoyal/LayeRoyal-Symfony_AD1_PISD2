@@ -99,5 +99,4 @@ class Chambre
 
         return $this;
     }
-
 }

@@ -20,22 +20,29 @@ class EtudiantRepository extends ServiceEntityRepository
         parent::__construct($registry, Etudiant::class);
     }
 
-    public function findStudent($req){
-        $conn=$this->getEntityManager()->getConnection();
-        $sql="SELECT * FROM `etudiant` WHERE `matricule`= :req OR `nom`= :req OR `bourse`= :req OR `num_chambre_id`= :req OR `adresse`= :req;";
-        $stmt=$conn->prepare($sql);
-        $stmt->execute(['req'=>$req]);
-        return $rep=$stmt->fetchAll(2);
-
+    public function findStudent($req)
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = "SELECT * FROM `etudiant` WHERE `matricule`= :req OR `nom`= :req OR `bourse`= :req OR `num_chambre_id`= :req OR `adresse`= :req;";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['req' => $req]);
+        return $stmt->fetchAll(2);
     }
-    public function lastId(){
-        $conn=$this->getEntityManager()->getConnection();
-        $sql="SELECT `id` FROM `etudiant` ORDER BY `id` DESC LIMIT 1";
-        $stmt=$conn->query($sql);
-        return $rep=$stmt->fetchAll();
-
+    public function lastId()
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = "SELECT `id` FROM `etudiant` ORDER BY `id` DESC LIMIT 1";
+        $stmt = $conn->query($sql);
+        return $stmt->fetchAll();
     }
 
+    public function freeRoom()
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = "SELECT `num_chambre_id` FROM `etudiant` WHERE `num_chambre_id` IS NOT NULL;";
+        $froom = $conn->query($sql);
+        return $froom->fetchAll();
+    }
     // /**
     //  * @return Etudiant[] Returns an array of Etudiant objects
     //  */

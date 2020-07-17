@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 08 juil. 2020 à 23:18
+-- Généré le : mer. 15 juil. 2020 à 15:14
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.6
 
@@ -61,7 +61,7 @@ CREATE TABLE `chambre` (
 
 INSERT INTO `chambre` (`id`, `batiment_id`, `type`) VALUES
 (1, 1, 'individuel'),
-(2, 2, 'individuel'),
+(2, 4, 'individuel'),
 (3, 3, 'deux'),
 (4, 4, 'deux'),
 (5, 1, 'deux'),
@@ -134,7 +134,6 @@ INSERT INTO `etudiant` (`id`, `num_chambre_id`, `nom`, `prenom`, `email`, `telep
 (12, NULL, 'Ndiaye', 'Moussa', 'mouss@nd.com', '763547890', '2020-06-10', '2020sand0013', 'Thies', 'Demi'),
 (13, NULL, 'Laye', 'mbaye', 'mbaye@ghmi.co', '777777777', '2020-06-09', '2020yela0003', 'Louga', 'Non'),
 (15, NULL, 'LEYE', 'Aida', 'aidy@aida.com', '7777777777', '2020-07-07', '2020dieng0202', 'Thies', 'Non'),
-(20, 15, 'gf', 'hgf', 'fhfg@knk', '12345678', '2020-07-14', '2020dieng0202', NULL, 'Entiere'),
 (21, NULL, 'Mbaye', 'Maty', 'jhhjv@kbjkj', '2345676', '2020-07-21', '2020tyMb0021', 'HFHV', 'Non');
 
 --

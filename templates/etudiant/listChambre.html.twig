@@ -1,34 +1,96 @@
 {% extends 'index.html.twig' %}
- {% block LC %}active{% endblock %}
-{%  block title %}Liste Chambre{% endblock %}
+{% block LC %}active
+{% endblock %}
+{%  block title %}Liste Chambre
+{% endblock %}
 {% block includePage %}
-<div class="container">
-    <h3 class="titre_page">Liste des Chambres</h3>
-    <div class="midChamb px-4 mt-4 mx-4">
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">N° Chambre</th>
-                <th scope="col">N° Batiment</th>
-                <th scope="col">Type</th>
-                <th scope="col">Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for chambre in chambres %}
-            <tr>
-                <td>{{ chambre.id }}</td>
-                <td>{{ chambre.batiment }}</td>
-                <td>{{ chambre.type }}</td>
-                <td><img src="{{ asset('/img/edit.png') }}" alt="edit" class='mr-4'><img src="{{ asset('/img/delete.png') }}" alt="delete"></td>
-            </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+	<div class="container">
+		<h3 class="titre_page">Liste des Chambres</h3>
+		<div class="midChamb px-4 mt-4 mx-4">
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">N° Chambre</th>
+						<th scope="col">N° Batiment</th>
+						<th scope="col">Type</th>
+						<th scope="col">Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for chambre in chambres %}
+						<tr>
+							<td>{{ chambre.id }}</td>
+							<td>{{ chambre.batiment }}</td>
+							<td>{{ chambre.type }}</td>
+							<td><img src="{{ asset('/img/edit.png') }}" alt="edit" class='mr-4' data-toggle="modal" data-target="#{{chambre.id}}"><img src="{{ asset('/img/delete.png') }}" alt="delete" data-toggle="modal" data-target="#delete{{chambre.id}}"></td>
+							<div class="modal fade my-auto" id="delete{{chambre.id}}" role="dialog">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header mt-2">
+											<h4 class="modal-title">Supprimer la chambre</h4>
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+										</div>
+										<div class="modal-body">
+											<h4 class="text-danger text-center">Voulez vous supprimer la chambre
+												{{ chambre.id }}
+												?</h4>
+										</div>
+										<div class="modal-footer d-block">
+											<form method="post" enctype="multipart/form-data">
+												<button name="delete" type="submit" class="btn btn-danger float-left" value="{{ chambre.id }}">OUI</button>
+												<button type="button" class="btn btn-default float-right" data-dismiss="modal">NON</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal fade mt-2" id="{{ chambre.id }}" role="dialog">
+								<form method="post" enctype="multipart/form-data">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4 class="modal-title">Modifier Chambre
+													{{ chambre.id }}</h4>
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+											</div>
+											<div class="modal-body">
+												<div class="form-group">
+													<div class="">
+														<label class="small">numero chambre</label>
+														<input disabled class="form-control" value="{{ chambre.id }}" type="text"/>
+													</div>
+													<div class="">
+														<label class="small">Batiment</label>
+														<select class="form-control" name="batiment" value="{{ chambre.batiment }}">
+															{%for batiment in batiments %}
+																<option value="{{ batiment.getId() }}">{{ batiment.getId()}}</option>
+															{% endfor %}
+														</select>
 
-    </div>
-    <div class="paginator mt-5">
-        {{ knp_pagination_render(chambres) }}
-    </div>
-</div>
-{%  endblock %}
+													</div>
+
+													<div class="">
+														<label class="small">Type</label>
+														<select class="form-control" name="type" value="{{ chambre.type }}">
+															<option value="individuel">individuel</option>
+															<option value="deux">deux</option>
+														</select>
+													</div>
+													<div class="modal-footer">
+														<button name="submit" type="submit" class="btn btn-primary mr-4 mx-auto" value="{{ chambre.id }}">Enregistrer</button>
+														<button type="button" class="btn btn-default ml-4" data-dismiss="modal">Close</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</tr>
+		</tbody>
+	</tbody>
+</table></div><div class="paginator mt-5">
+{{ knp_pagination_render(chambres) }}</div></div>{%  endblock %}
